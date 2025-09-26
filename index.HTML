@@ -1,32 +1,394 @@
-/* Lauren's updated hair: brown slick-back bun */
-.lauren .head {
-  background: #f9d5d3; /* skin tone */
-  border: 2px solid #e89191;
-  box-shadow: inset 0 5px 8px #fab1b1aa;
-  position: relative;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lauren & Friends Volleyball Lineup</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
-.lauren .hair {
-  position: absolute;
-  top: 5px;
-  left: 10px;
-  width: 40px;
-  height: 50px;
-  background: linear-gradient(180deg, #5b3a1a, #3e2611); /* brown */
-  border-radius: 20px 20px 5px 5px;
-  transform: translateY(-10px);
-  z-index: 5;
-}
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to top, #cceeff, #ffffff);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      padding: 20px;
+      color: #4b2e2e;
+    }
 
-/* The bun behind the head */
-.lauren .bun {
-  position: absolute;
-  top: -10px;
-  left: 25px;
-  width: 25px;
-  height: 25px;
-  background: linear-gradient(180deg, #5b3a1a, #3e2611);
-  border-radius: 50%;
-  box-shadow: 0 2px 5px #3e2611cc;
-  z-index: 4;
-}
+    h1 {
+      margin-bottom: 1rem;
+      color: #ff6fa7;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .court {
+      background: #d2f4ea;
+      border: 4px solid #4bb17b;
+      border-radius: 20px;
+      width: 90vw;
+      max-width: 1000px;
+      height: 300px;
+      position: relative;
+      box-shadow: 0 0 10px #81c784aa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lineup {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+    }
+
+    .friend {
+      background: #fff0f6;
+      border: 3px solid #ffb3c6;
+      border-radius: 15px;
+      width: 90px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 5px;
+      box-shadow: 0 3px 6px #ff9eb544;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .friend.lauren {
+      border-color: #ff6fa7;
+      box-shadow: 0 0 15px #ff6fa7aa;
+      transform: scale(1.1);
+      z-index: 10;
+    }
+
+    .friend:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 15px #ff6fa7cc;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    /* Heads */
+    .head {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #f9d5d3;
+      border: 2px solid #e89191;
+      position: relative;
+      box-shadow: inset 0 5px 8px #fab1b1aa;
+    }
+
+    /* Hair styles and colors */
+
+    /* Charlotte - blond straight hair */
+    .charlotte .hair {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 40px;
+      background: linear-gradient(90deg, #f9e79f, #f4d03f);
+      border-radius: 30px 30px 0 0;
+    }
+
+    /* Oriana - brown ponytail, darker skin */
+    .oriana .head {
+      background: #6f4e37; /* darker skin */
+      border-color: #523827;
+      box-shadow: inset 0 5px 8px #4d342f99;
+    }
+    .oriana .hair {
+      position: absolute;
+      top: 0;
+      left: 15px;
+      width: 30px;
+      height: 35px;
+      background: #5d3a1a;
+      border-radius: 15px 15px 0 0;
+    }
+    .oriana .ponytail {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      width: 15px;
+      height: 40px;
+      background: #5d3a1a;
+      border-radius: 10px;
+      transform: rotate(10deg);
+      transform-origin: top left;
+    }
+
+    /* Allison - brown long hair */
+    .allison .hair {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(180deg, #7b4f24, #5b3a1a);
+      border-radius: 30px;
+      z-index: -1;
+    }
+
+    /* Parker - blond medium hair + blue glasses */
+    .parker .hair {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(90deg, #f9e79f, #f4d03f);
+      border-radius: 25px 25px 0 0;
+    }
+    .parker .glasses {
+      position: absolute;
+      top: 25px;
+      left: 8px;
+      width: 45px;
+      height: 15px;
+      border: 3px solid #4da6ff;
+      border-radius: 6px;
+      background: #b3d1ffcc;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .parker .glasses div {
+      width: 15px;
+      height: 10px;
+      border-radius: 4px;
+      background: #4da6ff;
+    }
+
+    /* Emily - brown ponytail braid */
+    .emily .hair {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 35px;
+      background: linear-gradient(90deg, #5b3a1a, #7b4f24);
+      border-radius: 30px 30px 0 0;
+    }
+    .emily .braid {
+      position: absolute;
+      top: 35px;
+      left: 25px;
+      width: 10px;
+      height: 40px;
+      background: linear-gradient(90deg, #7b4f24, #5b3a1a);
+      border-radius: 10px;
+    }
+
+    /* Jazmine - black messy bun, black and white glasses, darker skin */
+    .jazmine .head {
+      background: #4a3c31; /* darker skin */
+      border-color: #302a22;
+      box-shadow: inset 0 5px 8px #261f1a99;
+    }
+    .jazmine .hair {
+      position: absolute;
+      top: -15px;
+      left: 15px;
+      width: 30px;
+      height: 30px;
+      background: black;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #000000cc;
+    }
+    .jazmine .bun {
+      position: absolute;
+      top: -25px;
+      left: 18px;
+      width: 25px;
+      height: 25px;
+      background: black;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #000000cc;
+    }
+    .jazmine .glasses {
+      position: absolute;
+      top: 25px;
+      left: 7px;
+      width: 45px;
+      height: 15px;
+      border: 3px solid black;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #000000cc, #ffffffcc);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .jazmine .glasses div {
+      width: 15px;
+      height: 10px;
+      border-radius: 4px;
+      background: #000000cc;
+    }
+
+    /* Bella - brown long hair */
+    .bella .hair {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(180deg, #7b4f24, #5b3a1a);
+      border-radius: 30px;
+      z-index: -1;
+    }
+
+    /* Body & uniform */
+    .body {
+      width: 60px;
+      height: 90px;
+      background: #ff9eb5;
+      border-radius: 30px 30px 15px 15px;
+      margin-top: 65px;
+      position: relative;
+      box-shadow: inset 0 5px 10px #ff7799aa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    /* Lauren’s volleyball */
+    .lauren .volleyball {
+      position: absolute;
+      bottom: 20px;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at center, #fff, #ffdde3);
+      border-radius: 50%;
+      border: 2px solid #ff6fa7;
+      box-shadow: inset 0 0 10px white;
+    }
+    .lauren .volleyball::before,
+    .lauren .volleyball::after {
+      content: "";
+      position: absolute;
+      border: 2px solid #ff6fa7;
+      border-radius: 50%;
+      top: 6px;
+      left: 6px;
+      width: 28px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+    .lauren .volleyball::after {
+      top: 14px;
+      left: 14px;
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Name label */
+    .name-label {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #b85a7c;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Lauren & Friends Volleyball Lineup</h1>
+
+  <div class="court" aria-label="Volleyball court with Lauren and her friends lined up">
+    <div class="lineup" role="list">
+      
+      <div class="friend emily" role="listitem" aria-label="Emily with brown hair in a ponytail braid">
+        <div class="head">
+          <div class="hair"></div>
+          <div class="braid"></div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Emily</div>
+      </div>
+
+      <div class="friend charlotte" role="listitem" aria-label="Charlotte with blond straight hair">
+        <div class="head">
+          <div class="hair"></div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Charlotte</div>
+      </div>
+
+      <div class="friend jazmine" role="listitem" aria-label="Jazmine with black hair in a messy bun, black and white glasses, darker skin">
+        <div class="head jazmine-head">
+          <div class="bun"></div>
+          <div class="hair"></div>
+          <div class="glasses">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Jazmine</div>
+      </div>
+
+      <div class="friend oriana" role="listitem" aria-label="Oriana with brown hair in a ponytail, darker skin">
+        <div class="head">
+          <div class="hair"></div>
+          <div class="ponytail"></div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Oriana</div>
+      </div>
+
+      <div class="friend lauren" role="listitem" aria-label="Lauren in the middle holding a volleyball">
+        <div class="head">
+          <div class="hair" style="background: linear-gradient(90deg, #ff9eb5, #ff6fa7); border-radius: 30px 30px 0 0;"></div>
+          <div class="volleyball"></div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Lauren</div>
+      </div>
+
+      <div class="friend allison" role="listitem" aria-label="Allison with brown long hair">
+        <div class="head">
+          <div class="hair"></div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Allison</div>
+      </div>
+
+      <div class="friend parker" role="listitem" aria-label="Parker with blond medium hair and blue glasses">
+        <div class="head">
+          <div class="hair"></div>
+          <div class="glasses">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Parker</div>
+      </div>
+
+      <div class="friend bella" role="listitem" aria-label="Bella with brown long hair">
+        <div class="head">
+          <div class="hair"></div>
+        </div>
+        <div class="body">🏐</div>
+        <div class="name-label">Bella</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
