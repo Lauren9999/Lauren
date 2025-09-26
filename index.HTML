@@ -2,393 +2,432 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lauren & Friends Volleyball Lineup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Lauren's World 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
-
+    /* General reset & fonts */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to top, #cceeff, #ffffff);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
-      padding: 20px;
-      color: #4b2e2e;
-    }
-
-    h1 {
-      margin-bottom: 1rem;
-      color: #ff6fa7;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .court {
-      background: #d2f4ea;
-      border: 4px solid #4bb17b;
-      border-radius: 20px;
-      width: 90vw;
-      max-width: 1000px;
-      height: 300px;
-      position: relative;
-      box-shadow: 0 0 10px #81c784aa;
+      background: #fff9f9;
+      color: #444;
       display: flex;
       justify-content: center;
-      align-items: center;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
     }
 
+    header h1 {
+      font-weight: 600;
+      color: #d46a6a;
+      margin-bottom: 0;
+    }
+    header p {
+      font-weight: 400;
+      color: #a85a5a;
+      margin-top: 5px;
+    }
+
+    /* Volleyball court background */
+    .court {
+      position: relative;
+      margin: 40px auto 60px;
+      width: 100%;
+      max-width: 860px;
+      height: 300px;
+      background: 
+        linear-gradient(to bottom, #cdaa7d 0%, #e4cda7 100%), /* wood floor base */
+        repeating-linear-gradient(
+          90deg, 
+          #e0c89a, 
+          #e0c89a 4px, 
+          #d6b778 4px, 
+          #d6b778 8px
+        );
+      border: 3px solid #8c6239;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px rgb(0 0 0 / 0.1);
+    }
+
+    /* Court lines */
+    .court::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      left: 40px;
+      right: 40px;
+      height: 200px;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+    .court .center-line {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 200px;
+      width: 4px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* Friends lineup container */
     .lineup {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 22px;
       width: 90%;
+      max-width: 840px;
     }
 
+    /* Individual friend avatars */
     .friend {
-      background: #fff0f6;
-      border: 3px solid #ffb3c6;
-      border-radius: 15px;
-      width: 90px;
-      height: 160px;
+      width: 70px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 10px 5px;
-      box-shadow: 0 3px 6px #ff9eb544;
-      position: relative;
-      transition: transform 0.3s ease;
+      font-weight: 600;
+      color: #5b3a1a;
+      text-shadow: 1px 1px 0 #fff3f3;
+      user-select: none;
     }
 
-    .friend.lauren {
-      border-color: #ff6fa7;
-      box-shadow: 0 0 15px #ff6fa7aa;
-      transform: scale(1.1);
-      z-index: 10;
-    }
-
-    .friend:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 15px #ff6fa7cc;
-      cursor: pointer;
-      z-index: 20;
-    }
-
-    /* Heads */
-    .head {
-      width: 60px;
-      height: 60px;
+    /* Avatar circle with face emoji */
+    .avatar {
+      background: #ffd8d8;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
-      background: #f9d5d3;
-      border: 2px solid #e89191;
+      box-shadow: 0 3px 6px rgb(0 0 0 / 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      cursor: default;
+      transition: transform 0.3s ease;
       position: relative;
-      box-shadow: inset 0 5px 8px #fab1b1aa;
     }
 
-    /* Hair styles and colors */
-
-    /* Charlotte - blond straight hair */
-    .charlotte .hair {
+    /* Lauren's volleyball */
+    .lauren .avatar::after {
+      content: "🏐";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 60px;
-      height: 40px;
-      background: linear-gradient(90deg, #f9e79f, #f4d03f);
-      border-radius: 30px 30px 0 0;
+      bottom: -10px;
+      right: -12px;
+      font-size: 20px;
+      animation: bounce 2s infinite ease-in-out;
     }
 
-    /* Oriana - brown ponytail, darker skin */
-    .oriana .head {
-      background: #6f4e37; /* darker skin */
-      border-color: #523827;
-      box-shadow: inset 0 5px 8px #4d342f99;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
-    .oriana .hair {
-      position: absolute;
-      top: 0;
-      left: 15px;
-      width: 30px;
-      height: 35px;
-      background: #5d3a1a;
-      border-radius: 15px 15px 0 0;
+
+    .friend:hover .avatar {
+      transform: scale(1.15);
+      box-shadow: 0 6px 12px rgb(0 0 0 / 0.25);
     }
-    .oriana .ponytail {
+
+    .name {
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    /* Special hair/skin traits by friend name */
+    /* Charlotte: blond straight hair */
+    .charlotte .avatar {
+      background: #fff2cc;
+      position: relative;
+    }
+    .charlotte .avatar::before {
+      content: "";
       position: absolute;
-      top: 30px;
-      left: 40px;
-      width: 15px;
-      height: 40px;
-      background: #5d3a1a;
+      top: 12px;
+      left: 8px;
+      width: 54px;
+      height: 20px;
+      background: linear-gradient(to bottom, #f9e79f 0%, #f7dc6f 100%);
+      border-radius: 20px 20px 5px 5px;
+      z-index: 1;
+    }
+
+    /* Oriana: brown ponytail & darker skin */
+    .oriana .avatar {
+      background: #7a4a32;
+      color: #fff;
+      position: relative;
+    }
+    .oriana .avatar::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 45px;
+      width: 12px;
+      height: 30px;
+      background: #4a2e19;
       border-radius: 10px;
-      transform: rotate(10deg);
-      transform-origin: top left;
+      transform: rotate(-15deg);
+      z-index: 1;
     }
 
-    /* Allison - brown long hair */
-    .allison .hair {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(180deg, #7b4f24, #5b3a1a);
-      border-radius: 30px;
-      z-index: -1;
+    /* Allison: brown long hair */
+    .allison .avatar {
+      background: #f4d5b2;
+      position: relative;
     }
-
-    /* Parker - blond medium hair + blue glasses */
-    .parker .hair {
+    .allison .avatar::before {
+      content: "";
       position: absolute;
-      top: 0;
-      left: 10px;
-      width: 40px;
+      top: 10px;
+      left: 12px;
+      width: 46px;
       height: 40px;
-      background: linear-gradient(90deg, #f9e79f, #f4d03f);
-      border-radius: 25px 25px 0 0;
+      background: linear-gradient(to bottom, #6b4c34 0%, #3f2e1e 100%);
+      border-radius: 25px 25px 5px 5px;
+      z-index: 1;
+    }
+
+    /* Parker: blond medium hair + blue glasses */
+    .parker .avatar {
+      background: #fbe9c7;
+      position: relative;
+      color: #5a5a5a;
+    }
+    .parker .avatar::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+      height: 25px;
+      background: linear-gradient(to bottom, #f6e7a6 0%, #f0db60 100%);
+      border-radius: 20px 20px 5px 5px;
+      z-index: 1;
     }
     .parker .glasses {
       position: absolute;
-      top: 25px;
-      left: 8px;
-      width: 45px;
-      height: 15px;
-      border: 3px solid #4da6ff;
-      border-radius: 6px;
-      background: #b3d1ffcc;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
+      top: 22px;
+      left: 12px;
+      width: 46px;
+      height: 16px;
+      border: 3px solid #47a6e8;
+      border-radius: 8px;
+      box-shadow: 0 0 6px #47a6e8aa;
+      pointer-events: none;
+      z-index: 2;
     }
-    .parker .glasses div {
+
+    /* Emily: brown ponytail braid */
+    .emily .avatar {
+      background: #f4d5b2;
+      position: relative;
+    }
+    .emily .avatar::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 45px;
       width: 15px;
-      height: 10px;
-      border-radius: 4px;
-      background: #4da6ff;
-    }
-
-    /* Emily - brown ponytail braid */
-    .emily .hair {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 60px;
       height: 35px;
-      background: linear-gradient(90deg, #5b3a1a, #7b4f24);
-      border-radius: 30px 30px 0 0;
-    }
-    .emily .braid {
-      position: absolute;
-      top: 35px;
-      left: 25px;
-      width: 10px;
-      height: 40px;
-      background: linear-gradient(90deg, #7b4f24, #5b3a1a);
+      background: #5a3319;
       border-radius: 10px;
+      transform: rotate(15deg);
+      z-index: 1;
+    }
+    .emily .avatar::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 50px;
+      width: 6px;
+      height: 30px;
+      background: #a05e3b;
+      border-radius: 8px;
+      transform: rotate(15deg);
+      z-index: 1;
     }
 
-    /* Jazmine - black messy bun, black and white glasses, darker skin */
-    .jazmine .head {
-      background: #4a3c31; /* darker skin */
-      border-color: #302a22;
-      box-shadow: inset 0 5px 8px #261f1a99;
+    /* Jazmine: black messy bun + black & white glasses, darker skin */
+    .jazmine .avatar {
+      background: #4d3a36;
+      color: #fff;
+      position: relative;
     }
-    .jazmine .hair {
+    .jazmine .avatar::before {
+      content: "";
       position: absolute;
-      top: -15px;
-      left: 15px;
-      width: 30px;
-      height: 30px;
-      background: black;
-      border-radius: 50%;
-      box-shadow: 0 0 6px #000000cc;
-    }
-    .jazmine .bun {
-      position: absolute;
-      top: -25px;
-      left: 18px;
+      top: 10px;
+      left: 20px;
       width: 25px;
-      height: 25px;
-      background: black;
+      height: 15px;
+      background: #1c1c1c;
       border-radius: 50%;
-      box-shadow: 0 0 8px #000000cc;
+      z-index: 2;
+      box-shadow: 0 3px 6px #000;
     }
     .jazmine .glasses {
       position: absolute;
       top: 25px;
-      left: 7px;
-      width: 45px;
-      height: 15px;
-      border: 3px solid black;
-      border-radius: 6px;
-      background: linear-gradient(90deg, #000000cc, #ffffffcc);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-    .jazmine .glasses div {
-      width: 15px;
-      height: 10px;
-      border-radius: 4px;
-      background: #000000cc;
+      left: 10px;
+      width: 50px;
+      height: 20px;
+      border: 3px solid #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 5px #fff;
+      pointer-events: none;
+      z-index: 3;
+      background: linear-gradient(90deg, #000 40%, #fff 60%);
+      mix-blend-mode: difference;
     }
 
-    /* Bella - brown long hair */
-    .bella .hair {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(180deg, #7b4f24, #5b3a1a);
-      border-radius: 30px;
-      z-index: -1;
-    }
-
-    /* Body & uniform */
-    .body {
-      width: 60px;
-      height: 90px;
-      background: #ff9eb5;
-      border-radius: 30px 30px 15px 15px;
-      margin-top: 65px;
+    /* Bella: brown long hair */
+    .bella .avatar {
+      background: #f4d5b2;
       position: relative;
-      box-shadow: inset 0 5px 10px #ff7799aa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 600;
-      color: white;
-      font-size: 1.2rem;
     }
-
-    /* Lauren’s volleyball */
-    .lauren .volleyball {
-      position: absolute;
-      bottom: 20px;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle at center, #fff, #ffdde3);
-      border-radius: 50%;
-      border: 2px solid #ff6fa7;
-      box-shadow: inset 0 0 10px white;
-    }
-    .lauren .volleyball::before,
-    .lauren .volleyball::after {
+    .bella .avatar::before {
       content: "";
       position: absolute;
-      border: 2px solid #ff6fa7;
-      border-radius: 50%;
-      top: 6px;
-      left: 6px;
-      width: 28px;
-      height: 28px;
-      box-sizing: border-box;
-    }
-    .lauren .volleyball::after {
-      top: 14px;
-      left: 14px;
-      width: 12px;
-      height: 12px;
+      top: 10px;
+      left: 12px;
+      width: 46px;
+      height: 40px;
+      background: linear-gradient(to bottom, #6b4c34 0%, #3f2e1e 100%);
+      border-radius: 25px 25px 5px 5px;
+      z-index: 1;
     }
 
-    /* Name label */
-    .name-label {
-      margin-top: 10px;
+    /* Scarlett: happy face */
+    .scarlett .avatar {
+      background: #fce4ec;
+      position: relative;
+      color: #c2185b;
+    }
+    .scarlett .avatar::before {
+      content: "😊";
+      position: absolute;
+      top: 18px;
+      left: 23px;
+      font-size: 28px;
+      pointer-events: none;
+    }
+
+    /* Lauren: brown slicked-back bun + volleyball */
+    .lauren .avatar {
+      background: #f9d5d3;
+      position: relative;
+      color: #5b3a1a;
+      font-size: 40px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lauren .avatar::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(180deg, #5b3a1a, #3e2611);
+      border-radius: 50% 50% 40% 40%;
+      box-shadow: inset 0 4px 6px #3e2611cc;
+      z-index: 2;
+    }
+    .lauren .avatar::after {
+      content: "🏐";
+      position: absolute;
+      bottom: -10px;
+      right: -12px;
+      font-size: 22px;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    /* Footer style */
+    footer {
+      margin-top: 40px;
+      color: #a85a5a;
       font-weight: 600;
-      color: #b85a7c;
-      text-align: center;
-      font-size: 0.9rem;
     }
-
   </style>
 </head>
 <body>
-  <h1>Lauren & Friends Volleyball Lineup</h1>
+  <div class="container">
+    <header>
+      <h1>🌸 Lauren's World 🌸</h1>
+      <p>Welcome to the cute corner of the internet ✨</p>
+    </header>
 
-  <div class="court" aria-label="Volleyball court with Lauren and her friends lined up">
-    <div class="lineup" role="list">
-      
-      <div class="friend emily" role="listitem" aria-label="Emily with brown hair in a ponytail braid">
-        <div class="head">
-          <div class="hair"></div>
-          <div class="braid"></div>
+    <!-- Volleyball court with friends lineup -->
+    <div class="court" aria-label="Volleyball court with Lauren and friends lined up happily">
+      <div class="center-line"></div>
+      <div class="lineup" role="list" aria-label="Lauren and her friends standing in a line on the volleyball court">
+        <div class="friend emily" role="listitem" aria-label="Emily with brown ponytail braid">
+          <div class="avatar">😊</div>
+          <div class="name">Emily</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Emily</div>
-      </div>
-
-      <div class="friend charlotte" role="listitem" aria-label="Charlotte with blond straight hair">
-        <div class="head">
-          <div class="hair"></div>
+        <div class="friend charlotte" role="listitem" aria-label="Charlotte with blond straight hair">
+          <div class="avatar">😊</div>
+          <div class="name">Charlotte</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Charlotte</div>
-      </div>
-
-      <div class="friend jazmine" role="listitem" aria-label="Jazmine with black hair in a messy bun, black and white glasses, darker skin">
-        <div class="head jazmine-head">
-          <div class="bun"></div>
-          <div class="hair"></div>
-          <div class="glasses">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="friend jazmine" role="listitem" aria-label="Jazmine with black messy bun and black and white glasses">
+          <div class="avatar">
+            <div class="glasses"></div>
+            😊
           </div>
+          <div class="name">Jazmine</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Jazmine</div>
-      </div>
-
-      <div class="friend oriana" role="listitem" aria-label="Oriana with brown hair in a ponytail, darker skin">
-        <div class="head">
-          <div class="hair"></div>
-          <div class="ponytail"></div>
+        <div class="friend oriana" role="listitem" aria-label="Oriana with brown ponytail and darker skin">
+          <div class="avatar">😊</div>
+          <div class="name">Oriana</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Oriana</div>
-      </div>
-
-      <div class="friend lauren" role="listitem" aria-label="Lauren in the middle holding a volleyball">
-        <div class="head">
-          <div class="hair" style="background: linear-gradient(90deg, #ff9eb5, #ff6fa7); border-radius: 30px 30px 0 0;"></div>
-          <div class="volleyball"></div>
+        <div class="friend lauren" role="listitem" aria-label="Lauren in the middle with brown slicked-back bun holding a volleyball">
+          <div class="avatar">😊</div>
+          <div class="name">Lauren</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Lauren</div>
-      </div>
-
-      <div class="friend allison" role="listitem" aria-label="Allison with brown long hair">
-        <div class="head">
-          <div class="hair"></div>
+        <div class="friend allison" role="listitem" aria-label="Allison with brown long hair">
+          <div class="avatar">😊</div>
+          <div class="name">Allison</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Allison</div>
-      </div>
-
-      <div class="friend parker" role="listitem" aria-label="Parker with blond medium hair and blue glasses">
-        <div class="head">
-          <div class="hair"></div>
-          <div class="glasses">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+        <div class="friend chloe" role="listitem" aria-label="Chloe happy">
+          <div class="avatar">😊</div>
+          <div class="name">Chloe</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Parker</div>
-      </div>
-
-      <div class="friend bella" role="listitem" aria-label="Bella with brown long hair">
-        <div class="head">
-          <div class="hair"></div>
+        <div class="friend bella" role="listitem" aria-label="Bella with brown long hair">
+          <div class="avatar">😊</div>
+          <div class="name">Bella</div>
         </div>
-        <div class="body">🏐</div>
-        <div class="name-label">Bella</div>
+        <div class="friend scarlett" role="listitem" aria-label="Scarlett smiling happily">
+          <div class="avatar">😊</div>
+          <div class="name">Scarlett</div>
+        </div>
       </div>
-
     </div>
+
+    <section class="profile" style="margin-top: 40px;">
+      <img src="https://i.imgur.com/Z7AzH2c.png" alt="Lauren" class="profile-pic" style="width: 150px; border-radius: 20px; box-shadow: 0 5px 15px #f5c7c7;" />
+      <h2>Hi! I'm Lauren 💕</h2>
+      <p>I love playing volleyball, laughing with my best friends, and being the sunshine in the group! ☀️</p>
+    </section>
+
+    <footer>
+      <p>Made with 💖 by Lauren & Friends</p>
+    </footer>
   </div>
 </body>
 </html>
