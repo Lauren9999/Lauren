@@ -1,0 +1,84 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #fff0f6;
+  color: #4b2e2e;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ff6fa7;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #aa5a83;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  border: 4px solid #ffb3c6;
+  margin-bottom: 1rem;
+}
+
+.friends {
+  background: #ffe3ec;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.friends ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.friends li {
+  background: #ff9eb5;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.hobbies {
+  text-align: center;
+  background: #fff7fb;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+footer {
+  text-align: center;
+  color: #b85a7c;
+  font-size: 0.9rem;
+}
