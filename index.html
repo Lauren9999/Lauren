@@ -2,396 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Lauren's World 🌸</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    /* General reset & fonts */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: #fff9f9;
-      color: #444;
-      display: flex;
-      justify-content: center;
-      padding: 30px 20px;
-    }
-    .container {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Volleyball Team ❤️</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏐 Our Team</h1>
+    <div class="team-names">
+      <div class="member">Lauren</div>
+      <div class="member">Charlotte</div>
+      <div class="member">Allison</div>
+      <div class="member">Chloe</div>
+      <div class="member">Parker</div>
+      <div class="member">Jasmine</div>
+      <div class="member">Emily</div>
+    </div>
 
-    header h1 {
-      font-weight: 600;
-      color: #d46a6a;
-      margin-bottom: 0;
-    }
-    header p {
-      font-weight: 400;
-      color: #a85a5a;
-      margin-top: 5px;
-    }
-
-    /* Volleyball court background */
-    .court {
-      position: relative;
-      margin: 40px auto 60px;
-      width: 100%;
-      max-width: 860px;
-      height: 300px;
-      background: 
-        linear-gradient(to bottom, #cdaa7d 0%, #e4cda7 100%), /* wood floor base */
-        repeating-linear-gradient(
-          90deg, 
-          #e0c89a, 
-          #e0c89a 4px, 
-          #d6b778 4px, 
-          #d6b778 8px
-        );
-      border: 3px solid #8c6239;
-      border-radius: 10px;
-      box-shadow: 0 10px 15px rgb(0 0 0 / 0.1);
-    }
-
-    /* Court lines */
-    .court::before {
-      content: "";
-      position: absolute;
-      top: 50px;
-      left: 40px;
-      right: 40px;
-      height: 200px;
-      border: 3px solid #fff;
-      border-radius: 10px;
-      box-sizing: border-box;
-      pointer-events: none;
-    }
-    .court .center-line {
-      position: absolute;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 200px;
-      width: 4px;
-      background: #fff;
-      border-radius: 2px;
-    }
-
-    /* Friends lineup container */
-    .lineup {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      width: 90%;
-      max-width: 840px;
-    }
-
-    /* Individual friend avatars */
-    .friend {
-      width: 70px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-weight: 600;
-      color: #5b3a1a;
-      text-shadow: 1px 1px 0 #fff3f3;
-      user-select: none;
-    }
-
-    /* Avatar circle with face emoji */
-    .avatar {
-      background: #ffd8d8;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      box-shadow: 0 3px 6px rgb(0 0 0 / 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 38px;
-      cursor: default;
-      transition: transform 0.3s ease;
-      position: relative;
-    }
-
-    /* Lauren's volleyball */
-    .lauren .avatar::after {
-      content: "🏐";
-      position: absolute;
-      bottom: -10px;
-      right: -12px;
-      font-size: 20px;
-      animation: bounce 2s infinite ease-in-out;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    .friend:hover .avatar {
-      transform: scale(1.15);
-      box-shadow: 0 6px 12px rgb(0 0 0 / 0.25);
-    }
-
-    .name {
-      margin-top: 6px;
-      font-size: 14px;
-    }
-
-    /* Special hair/skin traits by friend name */
-    /* Charlotte: blond straight hair */
-    .charlotte .avatar {
-      background: #fff2cc;
-      position: relative;
-    }
-    .charlotte .avatar::before {
-      content: "";
-      position: absolute;
-      top: 12px;
-      left: 8px;
-      width: 54px;
-      height: 20px;
-      background: linear-gradient(to bottom, #f9e79f 0%, #f7dc6f 100%);
-      border-radius: 20px 20px 5px 5px;
-      z-index: 1;
-    }
-
-    /* Oriana: brown ponytail & darker skin */
-    .oriana .avatar {
-      background: #7a4a32;
-      color: #fff;
-      position: relative;
-    }
-    .oriana .avatar::before {
-      content: "";
-      position: absolute;
-      top: 12px;
-      left: 45px;
-      width: 12px;
-      height: 30px;
-      background: #4a2e19;
-      border-radius: 10px;
-      transform: rotate(-15deg);
-      z-index: 1;
-    }
-
-    /* Allison: brown long hair */
-    .allison .avatar {
-      background: #f4d5b2;
-      position: relative;
-    }
-    .allison .avatar::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 12px;
-      width: 46px;
-      height: 40px;
-      background: linear-gradient(to bottom, #6b4c34 0%, #3f2e1e 100%);
-      border-radius: 25px 25px 5px 5px;
-      z-index: 1;
-    }
-
-    /* Parker: blond medium hair + blue glasses */
-    .parker .avatar {
-      background: #fbe9c7;
-      position: relative;
-      color: #5a5a5a;
-    }
-    .parker .avatar::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 50px;
-      height: 25px;
-      background: linear-gradient(to bottom, #f6e7a6 0%, #f0db60 100%);
-      border-radius: 20px 20px 5px 5px;
-      z-index: 1;
-    }
-    .parker .glasses {
-      position: absolute;
-      top: 22px;
-      left: 12px;
-      width: 46px;
-      height: 16px;
-      border: 3px solid #47a6e8;
-      border-radius: 8px;
-      box-shadow: 0 0 6px #47a6e8aa;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    /* Emily: brown ponytail braid */
-    .emily .avatar {
-      background: #f4d5b2;
-      position: relative;
-    }
-    .emily .avatar::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 45px;
-      width: 15px;
-      height: 35px;
-      background: #5a3319;
-      border-radius: 10px;
-      transform: rotate(15deg);
-      z-index: 1;
-    }
-    .emily .avatar::after {
-      content: "";
-      position: absolute;
-      top: 25px;
-      left: 50px;
-      width: 6px;
-      height: 30px;
-      background: #a05e3b;
-      border-radius: 8px;
-      transform: rotate(15deg);
-      z-index: 1;
-    }
-
-    /* Jazmine: black messy bun + black & white glasses, darker skin */
-    .jazmine .avatar {
-      background: #4d3a36;
-      color: #fff;
-      position: relative;
-    }
-    .jazmine .avatar::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      width: 25px;
-      height: 15px;
-      background: #1c1c1c;
-      border-radius: 50%;
-      z-index: 2;
-      box-shadow: 0 3px 6px #000;
-    }
-    .jazmine .glasses {
-      position: absolute;
-      top: 25px;
-      left: 10px;
-      width: 50px;
-      height: 20px;
-      border: 3px solid #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 5px #fff;
-      pointer-events: none;
-      z-index: 3;
-      background: linear-gradient(90deg, #000 40%, #fff 60%);
-      mix-blend-mode: difference;
-    }
-
-    /* Bella: brown long hair */
-    .bella .avatar {
-      background: #f4d5b2;
-      position: relative;
-    }
-    .bella .avatar::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 12px;
-      width: 46px;
-      height: 40px;
-      background: linear-gradient(to bottom, #6b4c34 0%, #3f2e1e 100%);
-      border-radius: 25px 25px 5px 5px;
-      z-index: 1;
-    }
-
-    /* Scarlett: happy face */
-    .scarlett .avatar {
-      background: #fce4ec;
-      position: relative;
-      color: #c2185b;
-    }
-    .scarlett .avatar::before {
-      content: "😊";
-      position: absolute;
-      top: 18px;
-      left: 23px;
-      font-size: 28px;
-      pointer-events: none;
-    }
-
-    /* Lauren: brown slicked-back bun + volleyball */
-    .lauren .avatar {
-      background: #f9d5d3;
-      position: relative;
-      color: #5b3a1a;
-      font-size: 40px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .lauren .avatar::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      width: 30px;
-      height: 30px;
-      background: linear-gradient(180deg, #5b3a1a, #3e2611);
-      border-radius: 50% 50% 40% 40%;
-      box-shadow: inset 0 4px 6px #3e2611cc;
-      z-index: 2;
-    }
-    .lauren .avatar::after {
-      content: "🏐";
-      position: absolute;
-      bottom: -10px;
-      right: -12px;
-      font-size: 22px;
-      animation: bounce 2s infinite ease-in-out;
-    }
-
-    /* Footer style */
-    footer {
-      margin-top: 40px;
-      color: #a85a5a;
-      font-weight: 600;
-    }
-
-    /* Volleyball skills section styling */
-    .skills {
-      margin-top: 50px;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #8c3a3a;
-    }
-    .skills h2 {
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .skills ul {
-      list-style: disc inside;
-      padding-left: 0;
-    }
-    .skills li {
-      margin-bottom: 8px;
-    }
-    .skills a {
-      color: #d46a6a;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .skills a:hover,
-    .skills a:focus {
-      color: #a83737;
-      text-decorat
+    <h2>Volleyball Skill Tutorials</h2>
+    <ul class="videos">
+      <li>
+        <strong>Setting:</strong>
+        <a href="https://www.youtube.com/watch?v=h5mpBCRK_yk" target="_blank">
+          Setting FUNDAMENTALS (Elevate Yourself) :contentReference[oaicite:0]{index=0}
+        </a>
+      </li>
+      <li>
+        <strong>Passing:</strong>
+        <a href="https://www.youtube.com/watch?v=gOgfoEGUDCA" target="_blank">
+          Passing FUNDAMENTALS (Elevate Yourself) :contentReference[oaicite:1]{index=1}
+        </a>
+      </li>
+      <li>
+        <strong>Digging:</strong>
+        <a href="https://www.youtube.com/watch?v=HtTuI_iDifA" target="_blank">
+          How to Improve your Dig (feat. Rachael Adams) :contentReference[oaicite:2]{index=2}
+        </a>
+      </li>
+      <li>
+        <strong>Spiking:</strong>
+        <a href="https://www.youtube.com/watch?v=WBiSJFZYuqA" target="_blank">
+          How to Spike a Volleyball (Coach Artie) :contentReference[oaicite:3]{index=3}
+        </a>
+      </li>
+      <li>
+        <strong>Extra Drill (Dig → Set → Hit):</strong>
+        <a href="https://www.youtube.com/watch?v=PxwxVLtKjYg" target="_blank">
+          Out of system drill: Digging, setting, hitting :contentReference[oaicite:4]{index=4}
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
